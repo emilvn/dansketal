@@ -1,3 +1,5 @@
+#ifndef DANSKETAL_H
+#define DANSKETAL_H
 typedef enum {NEVER, EVERY, LAST} occurence;
 struct Config {
     occurence og_between_hundreds_and_up;
@@ -7,3 +9,4 @@ struct Config {
     occurence et_before_hundred;
 };
 void dansketal(int, char *, struct Config *cfg);
+#endif

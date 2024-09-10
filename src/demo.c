@@ -2,16 +2,16 @@
 #include "dansketal.h"
 
 int main() {
-    char s[100];
+    char s[256];
     
     struct Config cfg = {
         .e_after_hundred = EVERY,
         .e_after_thousand = EVERY,
-        .et_before_hundred = NEVER,
-        .et_before_thousand = NEVER,
-        .og_between_hundreds_and_up = EVERY,
+        .et_before_hundred = EVERY,
+        .et_before_thousand = EVERY,
+        .og_between_hundreds_and_up = LAST,
     };
 
-    dansketal(99999, s, &cfg);
+    dansketal(2122999999, s, &cfg);
     printf("%s\n", s);
 }
