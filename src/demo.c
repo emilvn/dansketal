@@ -12,6 +12,6 @@ int main() {
         .og_between_hundreds_and_up = LAST,
     };
 
-    dansketal(2122999999, s, &cfg);
+    dansketal(-2122999999, s, &cfg);
     printf("%s\n", s);
 }

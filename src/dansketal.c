@@ -74,11 +74,17 @@ void dansketal(int n, char *s, struct Config *cfg) {
         return;
     }
 
+    char sign_str[10] = "";
+    if (n < 0) {
+        sprintf(sign_str, "minus ");
+        n = -n;
+    }
+
     int billions = n / 1000000000;
     int millions = (n / 1000000) % 1000 ;
     int thousands = (n / 1000) % 1000;
     int hundreds = n % 1000;
-    printf("%d\n", millions);
+    
     if (billions > 0) {
         char *billions_part = ones[billions];
         sprintf(billion_str, "%s %s", billions_part, (billions == 1) ? "milliard" : "milliarder");
@@ -103,7 +109,8 @@ void dansketal(int n, char *s, struct Config *cfg) {
     switch (cfg->og_between_hundreds_and_up)
     {
     case EVERY:
-        sprintf(s, "%s%s%s%s%s%s%s", 
+        sprintf(s, "%s%s%s%s%s%s%s%s",
+            sign_str, 
             (strlen(billion_str) > 0 ? billion_str : ""),
             (strlen(billion_str) > 0 ? " og " : ""),
             (strlen(million_str) > 0 ? million_str : ""),
@@ -114,7 +121,8 @@ void dansketal(int n, char *s, struct Config *cfg) {
         );
         break;
     case LAST:
-        sprintf(s, "%s%s%s%s%s%s%s",
+        sprintf(s, "%s%s%s%s%s%s%s%s",
+            sign_str,
             (strlen(billion_str) > 0 ? billion_str : ""), 
             (strlen(billion_str) > 0 ? " " : ""),
             (strlen(million_str) > 0 ? million_str : ""), 
@@ -125,7 +133,8 @@ void dansketal(int n, char *s, struct Config *cfg) {
         );
         break;
     case NEVER:
-        sprintf(s, "%s%s%s%s%s%s%s", 
+        sprintf(s, "%s%s%s%s%s%s%s%s", 
+            sign_str,
             (strlen(billion_str) > 0 ? billion_str : ""),
             (strlen(billion_str) > 0 ? " " : ""),
             (strlen(million_str) > 0 ? million_str : ""), 
