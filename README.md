@@ -1,5 +1,8 @@
 # dansketal
 
+***OBS*** 
+gives the correct word sometimes, pretty unreliable
+
 To build without running
 
 ```bash
