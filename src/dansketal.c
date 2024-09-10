@@ -75,10 +75,10 @@ void dansketal(int n, char *s, struct Config *cfg) {
     }
 
     int billions = n / 1000000000;
-    int millions = n / 1000000;
+    int millions = (n / 1000000) % 1000 ;
     int thousands = (n / 1000) % 1000;
     int hundreds = n % 1000;
-
+    printf("%d\n", millions);
     if (billions > 0) {
         char *billions_part = ones[billions];
         sprintf(billion_str, "%s %s", billions_part, (billions == 1) ? "milliard" : "milliarder");
